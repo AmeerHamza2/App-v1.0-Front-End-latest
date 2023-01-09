@@ -47,6 +47,11 @@ function AdminHome(props) {
       onClick: () => history.push("/superUser_home/mechanics"),
     },
     {
+      text: "Users",
+      icon: <SupervisorAccountIcon />,
+      onClick: () => history.push("/superUser_home/users"),
+    },
+    {
       text: "Orders",
       icon: <MonetizationOnIcon />,
       onClick: () => history.push("/superUser_home/orders"),

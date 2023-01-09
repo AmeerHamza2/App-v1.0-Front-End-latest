@@ -5,13 +5,13 @@ const AccountController = require("../controllers/accountController");
 
 router.get(
   "/findAll",
-  checkAuth.verifyToken,
-  AccountController.getAllCustomers
+ // checkAuth.verifyToken,//
+  AccountController.findAll
 );
 
 router.get("/findCustById/:custId", AccountController.findCustById);
 
-router.patch(
+router.put(
   "/updateProfile/:custId",
   [checkAuth.verifyToken, checkAuth.isCustomer],
   AccountController.updateProfile

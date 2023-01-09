@@ -63,6 +63,16 @@ class CustomerService {
         console.log(err);
       });
   }
+  findAllCustomers() {
+    return axios
+      .get(`http://localhost:8080/customer/account//findAll`)
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 }
 
 export default new CustomerService();

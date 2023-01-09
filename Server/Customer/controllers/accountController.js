@@ -17,9 +17,9 @@ exports.updateProfile = (req, res) => {
     });
 };
 
-exports.getAllCustomers = (req, res) => {
+/*exports.findAll = (req, res) => {
   Customer.find()
-    .select("name email _id")
+    .select("firstname lastname email _id")
     .exec()
     .then((results) => {
       const response = {
@@ -50,7 +50,31 @@ exports.getAllCustomers = (req, res) => {
         error: err,
       });
     });
+};*/
+//FInd All Users
+exports.findAll = (req, res) => {
+  Customer.find()
+ 
+    .exec()
+    .then((response) => {
+      if (response.length == 0) {
+        res.status(200).json({
+          message: "Add a Mechanic",
+        });
+      } else {
+        res.status(200).json({
+          response,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
 };
+
 
 exports.findCustById = (req, res) => {
   Customer.findById({ _id: req.params.custId })
