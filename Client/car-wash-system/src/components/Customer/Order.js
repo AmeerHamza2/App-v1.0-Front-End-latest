@@ -68,11 +68,13 @@ function Order(props) {
     CustomerService.placeOrder(
       user.userId,
       user.firstname,
+      user.email,
       car.name,
       values.carNumber,
       values.custAddress,
       service.name,
       service.price,
+      
       service.serviceProviderId
     )
       .then((response) => {

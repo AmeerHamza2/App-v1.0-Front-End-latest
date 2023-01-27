@@ -12,14 +12,14 @@ router.get(
 router.get("/findCustById/:custId", AccountController.findCustById);
 
 router.put(
-  "/updateProfile/:custId",
-  [checkAuth.verifyToken, checkAuth.isCustomer],
-  AccountController.updateProfile
+  "/updateCustomer/:custId",
+ 
+  AccountController.updateCustomer
 );
 
 router.delete(
-  "/deleteAccount/:custId",
-  [checkAuth.verifyToken, checkAuth.isCustomer],
+  "/deleteCustomer/:custId",
+ 
   AccountController.deleteCustomer
 );
 

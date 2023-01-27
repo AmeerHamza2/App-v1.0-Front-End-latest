@@ -9,9 +9,9 @@ router.get(
   OrderController.findPlacedOrders
 );
 
-router.patch(
+router.put(
   "/updateOrder/:orderId",
-  [checkAuth.verifyToken, checkAuth.isAdmin],
+ [checkAuth.verifyToken, checkAuth.isAdmin],
   OrderController.updateOrder
 );
 

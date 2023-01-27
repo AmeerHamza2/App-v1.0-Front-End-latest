@@ -23,8 +23,10 @@ function Register(props) {
     values.lastname,
     values.email,
     values.password
-  ).then((respone) => {
-    props.history.push("/login");
+  ).then((response) => {
+    console.log(response.userId)
+   props.history.push("/otpVerification/"+response.userId);
+  // props.history.push("/login");
   });
 }
 else{

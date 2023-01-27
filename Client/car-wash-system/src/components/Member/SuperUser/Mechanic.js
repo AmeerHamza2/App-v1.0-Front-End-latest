@@ -242,9 +242,9 @@ function Mechanic() {
           resolve();
           setIserror(false);
           setErrorMessages([]);
-          enqueueSnackbar(res, {
+        /*  enqueueSnackbar(res, {
             variant: "success",
-          });
+          });*/
         })
         .catch((error) => {
           setErrorMessages(["Update failed! Server error"]);

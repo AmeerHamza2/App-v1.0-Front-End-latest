@@ -19,10 +19,16 @@ export default function Login(props) {
   });
   const onSubmit = (values) => {
     AuthService.login(values.email, values.password).then((response) => {
-      if (response.role === "CUSTOMER") {
+      if (response.role === "CUSTOMER" ) {
+        toast.success("Login Successfully !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
         props.history.push("/cust_home").then(window.location.reload());
+       
       }
-      
+      toast.error("Invalid Email or Password !", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       props.history.push("/login");
     })
     

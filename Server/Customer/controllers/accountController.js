@@ -1,6 +1,6 @@
 const Customer = require("../model/customerModel");
 
-exports.updateProfile = (req, res) => {
+exports.updateCustomer = (req, res) => {
   const id = req.params.custId;
   Customer.updateOne({ _id: id }, { $set: req.body })
     .exec()
@@ -113,4 +113,5 @@ exports.deleteCustomer = (req, res) => {
         error: err,
       });
     });
-};
+  }
+    

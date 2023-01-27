@@ -19,7 +19,7 @@ class AdminOrders {
 
   assignOrder(orderId, mechanicId) {
     return axios
-      .patch(
+      .put(
         ORDER_URL + `updateOrder/${orderId}`,
         {
           mechanicId,

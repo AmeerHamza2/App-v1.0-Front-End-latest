@@ -26,6 +26,6 @@ router.post("/register", UsersController.register);
 
 router.post("/login", UsersController.login);
 
-
+router.post("/verifyOTP", UsersController.verifyOTP);
 
 module.exports = router;

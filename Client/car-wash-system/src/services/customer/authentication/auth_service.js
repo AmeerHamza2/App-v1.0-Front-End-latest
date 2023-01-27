@@ -15,15 +15,11 @@ class AuthService {
           this.authenticated = true;
           localStorage.setItem("customer", JSON.stringify(response.data));
         }
-        toast.success("Login Successfully !", {
-          position: toast.POSITION.TOP_CENTER,
-        });
+       
         return response.data;
       })
       .catch((err) => {
-        toast.error("Invalid Email or Password !", {
-          position: toast.POSITION.TOP_CENTER,
-        });
+       
         console.log("Login Error: " + err);
 
         return err;
@@ -37,11 +33,26 @@ class AuthService {
   }
 
   register(firstname, lastname, email, password) {
-    return axios.post(AUTH_URL + "register", {
+    return axios
+    .post(AUTH_URL + "register", {
       firstname,
       lastname,
       email,
       password,
+    })
+    .then((response) => {
+        
+      toast.success("check your mail for OTP Verification!!", {
+        position: toast.POSITION.TOP_CENTER
+      });
+      return response.data;
+    })
+    .catch((err) => {
+      toast.error("User with this Mail already Exist!!", {
+        position: toast.POSITION.TOP_CENTER
+      });
+      console.log("Login Error: " + err);
+      return err;
     });
   }
 
@@ -57,6 +68,24 @@ class AuthService {
       })
       .catch((err) => {
         toast.error("Link Expired.kindly again verify you Email.", {
+          position: toast.POSITION.TOP_CENTER
+        });
+        console.log("Login Error: " + err);
+        return err;
+      });
+  }
+  verifyOTP(userId,otp) {
+    return axios
+      .post(AUTH_URL + "verifyOTP", { userId,otp })
+      .then((response) => {
+        
+        toast.success("Email Verified Successfully!!", {
+          position: toast.POSITION.TOP_CENTER
+        });
+        return response.data;
+      })
+      .catch((err) => {
+        toast.error("Otp Expired or Wrong.kindly again verify you Email.", {
           position: toast.POSITION.TOP_CENTER
         });
         console.log("Login Error: " + err);

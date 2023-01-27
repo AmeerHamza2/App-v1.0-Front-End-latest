@@ -13,7 +13,7 @@ import Container from "@material-ui/core/Container";
 import { useForm } from "react-hook-form";
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-
+import { toast } from "react-toastify";
 
 import axios, * as others from 'axios';
 
@@ -180,16 +180,20 @@ function Mechanic() {
   ]);
   
   const handleRowDelete = (oldData, resolve) => {
-    MechanicServices.deleteServiceProviderAccount(oldData._id)
+    CustomerServices.deleteCustomer(oldData._id)
       .then((res) => {
+        toast.success("User Deleted Successfully !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
         const dataDelete = [...customer];
         const index = oldData.tableData.id;
         dataDelete.splice(index, 1);
         setCustomer([...dataDelete]);
         resolve();
-        enqueueSnackbar(res, {
+      /*  enqueueSnackbar(res, {
           variant: "success",
-        });
+        });*/
+        
       })
       .catch((error) => {
         enqueueSnackbar("Delete failed! Server error", {
@@ -202,7 +206,7 @@ function Mechanic() {
   const handleRowUpdate = (newData, oldData, resolve) => {
     let errorList = [];
     if (errorList.length < 1) {
-      MechanicServices.updateServiceProvider(
+      CustomerServices.updateCustomer(
         newData._id,
         newData.firstname,
         newData.lastname,
@@ -212,16 +216,20 @@ function Mechanic() {
       
       )
         .then((res) => {
+          toast.success("User Updated Successfully !", {
+            position: toast.POSITION.TOP_CENTER,
+          });
           const dataUpdate = [...customer];
           const index = oldData.tableData.id;
           dataUpdate[index] = newData;
           setCustomer([...dataUpdate]);
           resolve();
-          setIserror(false);
-          setErrorMessages([]);
-          enqueueSnackbar(res, {
+         // setIserror(false);
+          //setErrorMessages([]);
+        /*  enqueueSnackbar(res, {
             variant: "success",
-          });
+          });*/
+         
         })
         .catch((error) => {
           setErrorMessages(["Update failed! Server error"]);

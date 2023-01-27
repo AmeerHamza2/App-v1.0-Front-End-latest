@@ -14,6 +14,7 @@ import Working from  "./components/Home/Working";
 // Customer Routes
 import Register from "./components/Home/Register";
 import Login from "./components/Home/Login";
+import otpVerification from "./components/Home/otpVerfification";
 import ForgetPassword from "./components/Home/ForgetPassword";
 import ResetPassword from "./components/Home/ResetPassword";
 
@@ -51,6 +52,9 @@ function App() {
         {/* Customer Authentication Routes*/}
       <Route path="/Register" component={Register} />
       <Route path="/login" component={Login} />
+
+      <Route path="/otpVerification/:userId" exact component={otpVerification} />
+
          <Route path="/ForgetPassword" exact component={ForgetPassword} /> 
          <Route path="/ResetPassword/:resetLink" exact component={ResetPassword} />
 

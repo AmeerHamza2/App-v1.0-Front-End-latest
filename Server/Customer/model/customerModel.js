@@ -26,6 +26,11 @@ const customerSchema = mongoose.Schema({
     data:String,
     default:''
   },
+
+  verified:{
+type:String,
+default:'false'
+  },
 });
 
 customerSchema.methods.generateHashedPassword = async function () {
