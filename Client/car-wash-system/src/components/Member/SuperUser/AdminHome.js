@@ -31,18 +31,14 @@ function AdminHome(props) {
       icon: <HomeIcon />,
       onClick: () => history.push("/superUser_home"),
     },
-    {
-      text: "CARS",
-      icon: <DriveEtaIcon />,
-      onClick: () => history.push("/superUser_home/cars"),
-    },
+    
     {
       text: "Blogs",
       icon: <BallotIcon />,
       onClick: () => history.push("/superUser_home/Blogs"),
     },
     {
-      text: "Admins",
+      text: "Service Providers",
       icon: <SupervisorAccountIcon />,
       onClick: () => history.push("/superUser_home/mechanics"),
     },
@@ -99,30 +95,8 @@ function AdminHome(props) {
   return (
     <div className="admin_home">
       <hr />
-      <h1>WELCOME ADMIN</h1>
-      <h1>
-        Your Total Earnings: PKR 
-        {orders ? (orders
-          .map((order) => order.servicePrice)
-          .reduce((prev, next) => prev + next, 0)): "0"}
-      </h1>
+      <h1>WELCOME SUPER USER</h1>
       <hr />
-      <hr />
-      <h2><strong>Order Details</strong></h2>
-      <h3>
-        Your Total Orders: 
-        {orders && pOrders ? (orders.length + pOrders.length): "0"}
-      </h3>
-      <h3>
-        Completed Orders: 
-        {orders? (orders.length) : "0"}
-      </h3>
-      <h3>
-        Accepted In Process Orders: 
-        {pOrders ? (pOrders.length) : "0"}
-      </h3>
-      <hr />
-
       <Drawer variant="permanent" className="drawer">
         <List>
           {itemList.map((item, index) => {

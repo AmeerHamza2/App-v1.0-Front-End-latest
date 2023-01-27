@@ -25,6 +25,10 @@ const userSchema = mongoose.Schema({
   },
   status: { type: String, default: "AVAILABLE" },
   image: { type: String, required: true },
+  verify:{
+    type:String,
+    default:'false'
+      },
 });
 
 module.exports = mongoose.model("members", userSchema);

@@ -34,9 +34,7 @@ class AuthService {
           }
         }
         console.log(response.data.role);
-        toast.success("Login Successfully !", {
-          position: toast.POSITION.TOP_CENTER,
-        });
+        
         return response.data;
       })
       .catch((err) => {

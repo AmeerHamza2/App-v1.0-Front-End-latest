@@ -30,6 +30,10 @@ const userSchema = mongoose.Schema({
     data:String,
     default:''
   },
+  verify:{
+    type:String,
+    default:'false'
+      },
 });
 
 

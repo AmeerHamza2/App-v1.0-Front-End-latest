@@ -46,6 +46,7 @@ exports.login = (req, res, next) => {
               email: user.email,
               role: user.role,
               token: token,
+              verify: user.verify
               
             });
           } else {

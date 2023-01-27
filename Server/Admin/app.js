@@ -20,7 +20,7 @@ app.use(cors(corsOptions));
 
 mongoose
   .connect(
-    "mongodb://localhost:27017",
+    "mongodb+srv://fypProject08:G0CQYaEJTVAOMEKd@cluster0.0k0oh3u.mongodb.net/?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
   )
   .catch((err) => {

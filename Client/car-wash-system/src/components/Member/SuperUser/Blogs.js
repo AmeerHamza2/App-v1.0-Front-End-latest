@@ -243,14 +243,14 @@ function Mechanic() {
   console.log(blog)
   return (
     <div className="cars_container">
-      <h3>Mechanic Operations</h3>
+      <h3>Blogs</h3>
       <br />
 
-      <button onClick={openForm}>Add Service Provider</button>
+      <button onClick={openForm}>Add a Blog</button>
      
       <br />
       <MaterialTable
-        title="MECHANIC DATA"
+        title="BLOG"
         columns={columns}
         data={blog}
         editable={{
@@ -395,7 +395,7 @@ function Mechanic() {
         <Box sx={style}>
         <Container maxWidth="xs">
         <div className="login__form">
-            <h4>Create Mechanic Account</h4>
+            <h4>Add a Blog</h4>
             <br />
             <form  onSubmit={onSubmit} encType="multipart/form-data"  >
               <Grid container spacing={2}>

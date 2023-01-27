@@ -24,12 +24,17 @@ const userSchema = mongoose.Schema({
     type: String,
     default: 'ADMIN',
   },
+  verify:{
+    type:String,
+    default:'false'
+      },
   status: { type: String, default: "AVAILABLE" },
   resetLink:{
     data:String,
     default:''
   },
   image: { type: String, required: true },
+  
 
 
 });

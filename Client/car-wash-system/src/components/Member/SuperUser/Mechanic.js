@@ -30,6 +30,7 @@ function Mechanic() {
   const [mobile, setMobile] = useState("");
   const [role, setRole] = useState("");
   const [image, setFileName] = useState(null);
+  const [verify, setVerify] = useState("");
 
   
   const [mechanic, setMechanic] = useState([]);
@@ -164,6 +165,13 @@ function Mechanic() {
         console.log(err);
       });
   };*/
+
+  
+  const dynamicTypeLookUp = {
+    1: "true",
+    2: "false",
+  };
+
   const [columns, setColumns] = useState([
     
     { title: "ID", field: "_id" },
@@ -198,7 +206,9 @@ function Mechanic() {
         }}
       />
     </div>*/
-  }
+  },
+  {title: ' Current Verification Status', field: 'verify'},
+  {title: 'Manage Verification Status', field: 'verify', lookup: dynamicTypeLookUp},
 
   ]);
   
@@ -232,6 +242,7 @@ function Mechanic() {
         newData.email,
         newData.mobile,
         newData.status,
+        newData.verify
       
       )
         .then((res) => {
@@ -260,7 +271,7 @@ function Mechanic() {
   console.log(mechanic)
   return (
     <div className="cars_container">
-      <h3>Mechanic Operations</h3>
+      <h3>List of All Service Providers</h3>
       <br />
 
       <button onClick={openForm}>Add Service Provider</button>
@@ -268,7 +279,7 @@ function Mechanic() {
       
       <br />
       <MaterialTable
-        title="MECHANIC DATA"
+        title="Service Providers Data"
         columns={columns}
         data={mechanic}
         editable={{

@@ -9,6 +9,8 @@ import Avatar from "@material-ui/core/Avatar";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import "../Home/Login.css";
+import { toast } from "react-toastify";
+
 
 export default function Member_Login(props) {
   const { handleSubmit, register, errors } = useForm({
@@ -16,12 +18,21 @@ export default function Member_Login(props) {
   });
   const onSubmit = (values) => {
     AurhService.login(values.email, values.password).then((respone) => {
-      if (respone.role === "ADMIN") {
+      if (respone.role === "ADMIN" && respone.verify === "true") {
+        toast.success("Login Successfully !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
         props.history.push("/admin_home").then(window.location.reload());
       } 
+      if (respone.role === "ADMIN" && respone.verify === "false"){
+        toast.error("Account Not Verified Yet!", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      }
       if (respone.role === "MECHANIC") {
         props.history.push("/mechanic_home");
-      } else{
+      }
+       if (respone.role === "SUPER"){
         props.history.push("/SuperUser_home");
       }
     });
