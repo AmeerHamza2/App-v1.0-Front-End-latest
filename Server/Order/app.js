@@ -18,8 +18,9 @@ app.use(cors(corsOptions));
 //Database Connection
 mongoose
   .connect(
-    "mongodb+srv://fypProject08:G0CQYaEJTVAOMEKd@cluster0.0k0oh3u.mongodb.net/?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
+  //  "mongodb+srv://fypProject08:G0CQYaEJTVAOMEKd@cluster0.0k0oh3u.mongodb.net/?retryWrites=true&w=majority",
+  "mongodb://localhost:27017",  
+  { useNewUrlParser: true, useUnifiedTopology: true,  }
   )
   .catch((err) => {
     console.log("Database Connection Error: " + err);

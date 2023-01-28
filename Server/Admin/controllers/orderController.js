@@ -34,6 +34,7 @@ exports.findPlacedOrders = (req, res) => {
 exports.updateOrder = (req, res) => {
   const orderId = req.params.orderId;
   //updateOne({ _id: id }, { $set: req.body }
+ 
   OrderModel.updateOne(
     { _id: orderId },
     { $set: { status: "IN-PROCESS", mechanicId: req.body.mechanicId } }

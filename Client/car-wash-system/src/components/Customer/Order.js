@@ -7,6 +7,8 @@ import "./CSS/Order.css";
 import { Card, Grid, TextField, Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import { useSnackbar } from "notistack";
+
+import StripeContainer from "./StripeContainer"
 import ServiceProviderService from "../../services/member/auth_service"
 
 function Order(props) {
@@ -78,10 +80,12 @@ function Order(props) {
       service.serviceProviderId
     )
       .then((response) => {
+       
         enqueueSnackbar(response, {
           variant: "success",
         });
-      }).then(props.history.push("/cust_home").then(window.location.reload()))
+        props.history.push("/cust_home")//.then(window.location.reload())
+      }).then()
       .catch((err) => {
         console.log(err);
       });
@@ -130,7 +134,8 @@ function Order(props) {
                   )}
                 </Grid>
               </Grid>
-              <Button
+              <div style={{marginTop:"20px"}}><StripeContainer  onSubmit={onSubmit} price={service.price} /></div> 
+            {/*  <Button
                 type="submit"
                 fullWidth
                 variant="contained"
@@ -138,7 +143,7 @@ function Order(props) {
                 className=""
               >
                 PLACE ORDER
-              </Button>
+                  </Button>*/}
             </form>
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6}>

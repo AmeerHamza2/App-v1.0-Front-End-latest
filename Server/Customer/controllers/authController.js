@@ -355,7 +355,7 @@ exports.login = (req, res, next) => {
   User.findOne({ email: req.body.email })
     .exec()
     .then((user) => {
-      if (!user && user.verified==="true") {
+      if (!user ) {
         return res.status(401).json({
           message: "Authentication Failed",
         });

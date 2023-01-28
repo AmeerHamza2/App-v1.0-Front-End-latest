@@ -18,6 +18,7 @@ export default function Member_Login(props) {
   });
   const onSubmit = (values) => {
     AurhService.login(values.email, values.password).then((respone) => {
+      console.log(respone.role);
       if (respone.role === "ADMIN" && respone.verify === "true") {
         toast.success("Login Successfully !", {
           position: toast.POSITION.TOP_CENTER,

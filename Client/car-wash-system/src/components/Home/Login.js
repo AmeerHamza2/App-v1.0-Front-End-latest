@@ -19,7 +19,7 @@ export default function Login(props) {
   });
   const onSubmit = (values) => {
     AuthService.login(values.email, values.password).then((response) => {
-      if (response.role === "CUSTOMER" ) {
+      if (response.role === "CUSTOMER" && response.verified=== "true" ) {
         toast.success("Login Successfully !", {
           position: toast.POSITION.TOP_CENTER,
         });

@@ -1,11 +1,11 @@
 const Order = require("../model/orderModel");
-
+const MemberModel = require("../../Admin/model/MemberModel");
 
 var nodemailer = require('nodemailer');
 
 
 //TO place an Order
-exports.addOrder = (req, res) => {
+exports.addOrder =  (req, res) => {
   const order = new Order({
     customerId: req.body.customerId,
     firstName: req.body.firstName,
@@ -17,6 +17,9 @@ exports.addOrder = (req, res) => {
     servicePrice: req.body.servicePrice,
     serviceProviderId: req.body.serviceProviderId
   });
+
+/*  let Member =  MemberModel.findById( ).exec();
+  console.log(Member[0]['email']);*/
   let transporter = nodemailer.createTransport({
    
     host: 'smtp.office365.com', // Office 365 server
@@ -45,14 +48,30 @@ exports.addOrder = (req, res) => {
   order
     .save()
     .then((result) => {
+     /* MemberModel.find({ _id: result.serviceProviderId})
+      .exec()
+      .then((obj) => {
+console.log(obj);
+      })
+      .catch((err) => {
+        console.log("Placing Order Error" + err);
+        res.status(500).json({
+          error: err,
+        });
+      });*/
       transporter.sendMail(mailOptions, function(error, info){
         if (error) {
           console.log(error);
         } else {
-          console.log('Email sent: ' + info.response);
+        //  console.log('Email sent: ' + info.response);
         return res.json({message:'Email has been sent'});
         }
       });
+    /*  console.log("service provider email"+result.email)
+      MemberModel.findOne({_id: result.serviceProviderId}).exec().then((obj) => {
+        console.log(obj.email);
+      });*/
+
       console.log("Order Placed: " + result);
       res.status(201).json({
         message: "Thank you for your order.",
