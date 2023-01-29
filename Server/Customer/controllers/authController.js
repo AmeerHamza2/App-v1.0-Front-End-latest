@@ -84,7 +84,7 @@ exports.forgotPassword= async (req,res,next)=>{
  const mailOptions = {
     from:'carsaz37@outlook.com', // sender address
     to: req.body.email,
-    subject: 'reset your carsaz password!!!!',// Subject line
+    subject: 'reset your Application password!!!!',// Subject line
     text: 'The link will be expired in 1 Hour.\n',
   
  html : 'To reset your password, click this <a href="' + resetUrl + '"><span>link</span></a>.<br>This is a <b>test</b> email.'
@@ -155,7 +155,7 @@ const SendOtpVerificationEmail =  async ({ _id, email },res) => {
    /* const mailOptions = {
        from:'carsaz37@outlook.com', // sender address
        to: email,
-       subject: 'reset your carsaz password!!!!',// Subject line
+       subject: 'reset your Application password!!!!',// Subject line
        text: 'The link will be expired in 1 Hour.\n',
      
     html : 'To reset your password, click this <a href="'  + '"><span>link</span></a>.<br>This is a <b>test</b> email.'
@@ -166,14 +166,14 @@ const SendOtpVerificationEmail =  async ({ _id, email },res) => {
         subject: "Verify your Email",
         text: "OTP Verification Email",
         html: `
-        <h2>Hello and Welcome to <span style="color:#e92e4a;">Carsaz.com</span></h2>
+        <h2>Hello and Welcome to <span style="color:#e92e4a;">Application.com</span></h2>
         <p>Your OTP verification code is <span style="color:#e92e4a; font-size:20px;">${otp}</span></p>.
         <p>Enter this code in our website or mobile app to activate your account.</p>
         <br/>
         <p>If you have any questions, send us an email <span style="color:blue;">support.carsaz37@outlook.com</span>.</p>
         <br/>
         <p>We’re glad you’re here!</p>
-        <p style="color:#e92e4a;">The CarSaz team</p>`,
+        <p style="color:#e92e4a;">The Application team</p>`,
       };
     //hash the OTP
     const saltRounds = 10;

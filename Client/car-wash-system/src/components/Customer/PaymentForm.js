@@ -31,7 +31,11 @@ export default function PaymentForm(props) {
     const [success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
-    const {  onSubmit,price } = props;
+    const {  onSubmitOnline,price } = props;
+
+    const style = {
+       marginLeft: 1000
+      }
 
 
     const onSubmitOder=()=>{
@@ -61,7 +65,7 @@ export default function PaymentForm(props) {
                     position: toast.POSITION.TOP_CENTER,
                   });
              
-                  onSubmit();
+                  onSubmitOnline();
                 setSuccess(true)
             }
 
@@ -78,8 +82,11 @@ export default function PaymentForm(props) {
         <>
         {!success ? 
         <form onSubmit={handleSubmit} >
+            
             <fieldset className="FormGroup">
+            <strong><h2 style={{backgroundColor : '#7f7f7f'}}>Please Enter The Card Details</h2></strong>
                 <div className="FormRow">
+                
                     <CardElement options={CARD_OPTIONS}/>
                 </div>
             </fieldset>
@@ -89,9 +96,9 @@ export default function PaymentForm(props) {
                 
                 variant="contained"
                 color="primary"
-                className=""
+                style={style}
               >
-            place order {price}PKR 
+            PAY {price}PKR 
                   </Button>
         </form>
         :

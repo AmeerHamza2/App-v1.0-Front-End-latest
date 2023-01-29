@@ -17,6 +17,7 @@ const orderSchema = mongoose.Schema({
     type: String,
     default: "PLACED",
   },
+  paymentMethod: {type: String},
 });
 
 module.exports = mongoose.model("order", orderSchema);

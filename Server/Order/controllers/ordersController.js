@@ -15,7 +15,8 @@ exports.addOrder =  (req, res) => {
     custAddress: req.body.custAddress,
     serviceName: req.body.serviceName,
     servicePrice: req.body.servicePrice,
-    serviceProviderId: req.body.serviceProviderId
+    serviceProviderId: req.body.serviceProviderId,
+    paymentMethod: req.body.paymentMethod
   });
 
 /*  let Member =  MemberModel.findById( ).exec();

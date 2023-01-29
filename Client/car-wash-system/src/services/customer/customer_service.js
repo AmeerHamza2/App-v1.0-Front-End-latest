@@ -14,7 +14,8 @@ class CustomerService {
     custAddress,
     serviceName,
     servicePrice,
-    serviceProviderId
+    serviceProviderId,
+    paymentMethod,
   ) {
     return axios
       .post(
@@ -28,7 +29,8 @@ class CustomerService {
           custAddress,
           serviceName,
           servicePrice,
-          serviceProviderId
+          serviceProviderId,
+          paymentMethod
           
         },
         {

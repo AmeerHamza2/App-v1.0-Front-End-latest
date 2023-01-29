@@ -31,6 +31,7 @@ function MyBookings() {
             <h4>Address: {order.custAddress}</h4>
             <h4>Service Name: {order.serviceName}</h4>
             <h4>Service Price: {order.servicePrice}</h4>
+            <h4>Payment Method: {order.paymentMethod}</h4>
           </CardContent>
         </Card>
       </Grid>

@@ -27,7 +27,7 @@ function Working() {
   const classes = useStyles();
   return (
     <div className="container">
-      <h1>How CARSAZ Works?</h1>
+      <h1>How Application Works?</h1>
 
       <Timeline align="alternate">
         <TimelineItem>
@@ -60,7 +60,7 @@ function Working() {
                 Select The Perfect Car Service
               </Typography>
               <br />
-              <Typography>From CARSAZ's broad portfolio of Services</Typography>
+              <Typography>From Application's broad portfolio of Services</Typography>
             </Paper>
           </TimelineContent>
         </TimelineItem>

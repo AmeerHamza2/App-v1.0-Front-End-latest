@@ -15,6 +15,7 @@ const orderSchema = mongoose.Schema({
   status: {
     type: String,
   },
+  paymentMethod: {type: String},
 });
 
 module.exports = mongoose.model("order", orderSchema);

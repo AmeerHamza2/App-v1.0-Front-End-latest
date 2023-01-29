@@ -35,7 +35,7 @@ function CustNav() {
         <img
           className="nav__logo"
           src= {Logo}
-          alt="CARSAZ LOGO"
+          alt="Application LOGO"
         />
       </a>
       <div

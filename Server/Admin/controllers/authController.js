@@ -163,7 +163,7 @@ exports.forgotPassword= async (req,res,next)=>{
  const mailOptions = {
     from:'carsaz37@outlook.com', // sender address
     to: req.body.email,
-    subject: 'reset your carsaz password!!!!',// Subject line
+    subject: 'reset your Application password!!!!',// Subject line
     text: 'The link will be expired in 1 Hour.\n',
   
  html : 'To reset your password, click this <a href="' + resetUrl + '"><span>link</span></a>.<br>This is a <b>test</b> email.'
@@ -232,7 +232,7 @@ const SendOtpVerificationEmail =  async ({ _id, email }, res) => {
     const mailOptions = {
        from:'carsaz37@outlook.com', // sender address
        to: req.body.email,
-       subject: 'reset your carsaz password!!!!',// Subject line
+       subject: 'reset your Application password!!!!',// Subject line
        text: 'The link will be expired in 1 Hour.\n',
      
     html : 'To reset your password, click this <a href="' + resetUrl + '"><span>link</span></a>.<br>This is a <b>test</b> email.'
