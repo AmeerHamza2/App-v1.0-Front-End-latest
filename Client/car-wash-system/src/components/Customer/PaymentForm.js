@@ -100,6 +100,7 @@ export default function PaymentForm(props) {
               >
             PAY {price}PKR 
                   </Button>
+                  
         </form>
         :
         <div>
